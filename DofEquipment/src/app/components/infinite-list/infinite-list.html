@@ -3,3 +3,17 @@
 <div>
     La page liste infinie
 </div>
+
+@if (sprites$ | async; as sprites) {
+    <ul>
+    @for (sprite of sprites; track sprite) {
+        <li>
+            <img [src]="sprite" alt="Pokémon sprite" />
+        </li>
+    } @empty {
+        <li>Aucun item trouvé.</li>
+    }
+    </ul>
+} @else {
+    <app-loader message="Chargement des Pokémon..."></app-loader>
+}
