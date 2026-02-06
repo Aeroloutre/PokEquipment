@@ -5,7 +5,7 @@
 </div>
 
 @if (sprites$ | async; as sprites) {
-    <ul>
+    <ul class="flex flex-row">
     @for (sprite of sprites; track sprite) {
         <li>
             <img [src]="sprite" alt="Pokémon sprite" />
