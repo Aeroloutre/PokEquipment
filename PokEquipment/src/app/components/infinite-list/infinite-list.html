@@ -1,19 +1,51 @@
 <app-header></app-header>
 
-<div>
-    La page liste infinie
-</div>
+@if (sprites1$ | async; as sprites1) {
+    <app-marquee-carousel 
+        [items]="sprites1" 
+        [duration]="30" 
+        direction="left">
+    </app-marquee-carousel>
+} @else {
+    <app-loader message="Chargement des Pokémon..."></app-loader>
+}
 
-@if (sprites$ | async; as sprites) {
-    <ul class="flex flex-row">
-    @for (sprite of sprites; track sprite) {
-        <li>
-            <img [src]="sprite" alt="Pokémon sprite" />
-        </li>
-    } @empty {
-        <li>Aucun item trouvé.</li>
-    }
-    </ul>
+@if (sprites2$ | async; as sprites2) {
+    <app-marquee-carousel 
+        [items]="sprites2" 
+        [duration]="30" 
+        direction="right">
+    </app-marquee-carousel>
+} @else {
+    <app-loader message="Chargement des Pokémon..."></app-loader>
+}
+
+@if (sprites3$ | async; as sprites3) {
+    <app-marquee-carousel 
+        [items]="sprites3" 
+        [duration]="30" 
+        direction="left">
+    </app-marquee-carousel>
+} @else {
+    <app-loader message="Chargement des Pokémon..."></app-loader>
+}
+
+@if (sprites4$ | async; as sprites4) {
+    <app-marquee-carousel 
+        [items]="sprites4" 
+        [duration]="30" 
+        direction="right">
+    </app-marquee-carousel>
+} @else {
+    <app-loader message="Chargement des Pokémon..."></app-loader>
+}
+
+@if (sprites5$ | async; as sprites5) {
+    <app-marquee-carousel 
+        [items]="sprites5" 
+        [duration]="30" 
+        direction="left">
+    </app-marquee-carousel>
 } @else {
     <app-loader message="Chargement des Pokémon..."></app-loader>
 }

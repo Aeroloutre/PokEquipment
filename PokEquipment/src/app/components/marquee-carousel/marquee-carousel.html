@@ -1,0 +1,21 @@
+<div 
+    class="marquee-wrapper overflow-hidden flex min-h-40"
+    [class.reverse]="direction === 'right'">
+    @for (i of repetitionArray; track i) {
+        <div 
+            class="marquee" 
+            [style.animation-duration]="duration + 's'"
+            [style.gap]="gap">
+            @for (item of items; track item) {
+                <div class="sprite-container">
+                    <img 
+                        [src]="item" 
+                        [style.height]="itemHeight"
+                        alt="Carousel item" />
+                </div>
+            } @empty {
+                <div>Aucun item trouvé.</div>
+            }
+        </div>
+    }
+</div>

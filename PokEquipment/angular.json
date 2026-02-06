@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "DofEquipment": {
+    "PokEquipment": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "DofEquipment:build:production"
+              "buildTarget": "PokEquipment:build:production"
             },
             "development": {
-              "buildTarget": "DofEquipment:build:development"
+              "buildTarget": "PokEquipment:build:development"
             }
           },
           "defaultConfiguration": "development"

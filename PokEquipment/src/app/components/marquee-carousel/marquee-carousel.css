@@ -1,0 +1,51 @@
+.marquee-wrapper {
+    position: relative;
+}
+
+.marquee {
+    display: flex;
+    animation: scroll-left 30s linear infinite;
+    gap: 2rem;
+}
+
+.marquee-wrapper.reverse .marquee {
+    animation-name: scroll-right;
+}
+
+.sprite-container {
+    flex-shrink: 0;
+    min-width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sprite-container img {
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    image-rendering: pixelated; /* Pour garder le style pixel art */
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Pause au survol */
+.marquee-wrapper:hover .marquee {
+    animation-play-state: paused;
+}
