@@ -1,0 +1,72 @@
+
+<form [formGroup]="team" (ngSubmit)="onSubmit()" class="team-grid">
+    <div class="title">
+        <h1>Créer une équipe !</h1>
+    </div>
+
+  <div class="pokemon-slot">
+    <label for="pokemon1">Pokémon 1</label>
+    <select id="pokemon1" formControlName="pokemon1">
+      <option value=""></option>
+      @for (pokemon of allPokemons; track pokemon) {
+        <option [value]="pokemon">{{ pokemon }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="pokemon-slot">
+    <label for="pokemon2">Pokémon 2</label>
+    <select id="pokemon2" formControlName="pokemon2">
+      <option value=""></option>
+      @for (pokemon of allPokemons; track pokemon) {
+        <option [value]="pokemon">{{ pokemon }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="pokemon-slot">
+    <label for="pokemon3">Pokémon 3</label>
+    <select id="pokemon3" formControlName="pokemon3">
+      <option value=""></option>
+      @for (pokemon of allPokemons; track pokemon) {
+        <option [value]="pokemon">{{ pokemon }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="pokemon-slot">
+    <label for="pokemon4">Pokémon 4</label>
+    <select id="pokemon4" formControlName="pokemon4">
+      <option value=""></option>
+      @for (pokemon of allPokemons; track pokemon) {
+        <option [value]="pokemon">{{ pokemon }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="pokemon-slot">
+    <label for="pokemon5">Pokémon 5</label>
+    <select id="pokemon5" formControlName="pokemon5">
+      <option value=""></option>
+      @for (pokemon of allPokemons; track pokemon) {
+        <option [value]="pokemon">{{ pokemon }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="pokemon-slot">
+    <label for="pokemon6">Pokémon 6</label>
+    <select id="pokemon6" formControlName="pokemon6">
+      <option value=""></option>
+      @for (pokemon of allPokemons; track pokemon) {
+        <option [value]="pokemon">{{ pokemon }}</option>
+      }
+    </select>
+  </div>
+
+  @if (errorMessage) {
+    <p class="error-message">{{ errorMessage }}</p>
+  }
+
+  <button type="submit" class="submit-btn">Valider l'équipe</button>
+</form>
