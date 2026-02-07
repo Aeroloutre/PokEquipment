@@ -1,104 +1,107 @@
+<div class="page-wrapper">
 
-<form [formGroup]="team" (ngSubmit)="onSubmit()" class="team-grid">
-    <div class="title">
-        <h1>Créer une équipe !</h1>
+
+  <form [formGroup]="team" (ngSubmit)="onSubmit()" class="team-grid">
+      <div class="title">
+          <h1>Créer une équipe !</h1>
+      </div>
+
+    <div class="pokemon-slot">
+      <label for="pokemon1">Pokémon 1</label>
+      <select id="pokemon1" formControlName="pokemon1">
+        <option value=""></option>
+        @for (pokemon of allPokemons; track pokemon) {
+          <option [value]="pokemon">{{ pokemon }}</option>
+        }
+      </select>
     </div>
 
-  <div class="pokemon-slot">
-    <label for="pokemon1">Pokémon 1</label>
-    <select id="pokemon1" formControlName="pokemon1">
-      <option value=""></option>
-      @for (pokemon of allPokemons; track pokemon) {
-        <option [value]="pokemon">{{ pokemon }}</option>
-      }
-    </select>
-  </div>
+    <div class="pokemon-slot">
+      <label for="pokemon2">Pokémon 2</label>
+      <select id="pokemon2" formControlName="pokemon2">
+        <option value=""></option>
+        @for (pokemon of allPokemons; track pokemon) {
+          <option [value]="pokemon">{{ pokemon }}</option>
+        }
+      </select>
+    </div>
 
-  <div class="pokemon-slot">
-    <label for="pokemon2">Pokémon 2</label>
-    <select id="pokemon2" formControlName="pokemon2">
-      <option value=""></option>
-      @for (pokemon of allPokemons; track pokemon) {
-        <option [value]="pokemon">{{ pokemon }}</option>
-      }
-    </select>
-  </div>
+    <div class="pokemon-slot">
+      <label for="pokemon3">Pokémon 3</label>
+      <select id="pokemon3" formControlName="pokemon3">
+        <option value=""></option>
+        @for (pokemon of allPokemons; track pokemon) {
+          <option [value]="pokemon">{{ pokemon }}</option>
+        }
+      </select>
+    </div>
 
-  <div class="pokemon-slot">
-    <label for="pokemon3">Pokémon 3</label>
-    <select id="pokemon3" formControlName="pokemon3">
-      <option value=""></option>
-      @for (pokemon of allPokemons; track pokemon) {
-        <option [value]="pokemon">{{ pokemon }}</option>
-      }
-    </select>
-  </div>
+    <div class="pokemon-slot">
+      <label for="pokemon4">Pokémon 4</label>
+      <select id="pokemon4" formControlName="pokemon4">
+        <option value=""></option>
+        @for (pokemon of allPokemons; track pokemon) {
+          <option [value]="pokemon">{{ pokemon }}</option>
+        }
+      </select>
+    </div>
 
-  <div class="pokemon-slot">
-    <label for="pokemon4">Pokémon 4</label>
-    <select id="pokemon4" formControlName="pokemon4">
-      <option value=""></option>
-      @for (pokemon of allPokemons; track pokemon) {
-        <option [value]="pokemon">{{ pokemon }}</option>
-      }
-    </select>
-  </div>
+    <div class="pokemon-slot">
+      <label for="pokemon5">Pokémon 5</label>
+      <select id="pokemon5" formControlName="pokemon5">
+        <option value=""></option>
+        @for (pokemon of allPokemons; track pokemon) {
+          <option [value]="pokemon">{{ pokemon }}</option>
+        }
+      </select>
+    </div>
 
-  <div class="pokemon-slot">
-    <label for="pokemon5">Pokémon 5</label>
-    <select id="pokemon5" formControlName="pokemon5">
-      <option value=""></option>
-      @for (pokemon of allPokemons; track pokemon) {
-        <option [value]="pokemon">{{ pokemon }}</option>
-      }
-    </select>
-  </div>
+    <div class="pokemon-slot">
+      <label for="pokemon6">Pokémon 6</label>
+      <select id="pokemon6" formControlName="pokemon6">
+        <option value=""></option>
+        @for (pokemon of allPokemons; track pokemon) {
+          <option [value]="pokemon">{{ pokemon }}</option>
+        }
+      </select>
+    </div>
 
-  <div class="pokemon-slot">
-    <label for="pokemon6">Pokémon 6</label>
-    <select id="pokemon6" formControlName="pokemon6">
-      <option value=""></option>
-      @for (pokemon of allPokemons; track pokemon) {
-        <option [value]="pokemon">{{ pokemon }}</option>
-      }
-    </select>
-  </div>
-
-  @if (errorMessage) {
-    <p class="error-message">{{ errorMessage }}</p>
-  }
-
-  <button type="submit" class="submit-btn">Valider l'équipe</button>
-</form>
-
-<section class="saved-teams">
-  <h2>Équipes sauvegardées</h2>
-
-  @if (savedTeamsWithSprites.length === 0) {
-    <p class="no-teams">Aucune équipe sauvegardée.</p>
-  }
-
-  <div class="teams-list">
-    @for (team of savedTeamsWithSprites; track team['id']; let i = $index) {
-      <div class="team-card">
-        <div class="team-header">
-          <strong>Équipe {{ i + 1 }}</strong>
-          <button class="delete-btn" (click)="deleteTeam(team['id'])">Supprimer</button>
-        </div>
-
-        <div class="team-pokemon-grid">
-          @for (key of ['pokemon1','pokemon2','pokemon3','pokemon4','pokemon5','pokemon6']; track key) {
-            <div class="pokemon-box">
-              @if (team[key]?.sprite) {
-                <img [src]="team[key].sprite" [alt]="team[key].name" class="sprite" />
-              } @else {
-                <div class="sprite placeholder"></div>
-              }
-              <span class="pokemon-name">{{ team[key]?.name ?? '—' }}</span>
-            </div>
-          }
-        </div>
-      </div>
+    @if (errorMessage) {
+      <p class="error-message">{{ errorMessage }}</p>
     }
-  </div>
-</section>
+
+    <button type="submit" class="submit-btn">Valider l'équipe</button>
+  </form>
+
+  <section class="saved-teams">
+    <h2>Équipes sauvegardées</h2>
+
+    @if (savedTeamsWithSprites.length === 0) {
+      <p class="no-teams">Aucune équipe sauvegardée.</p>
+    }
+
+    <div class="teams-list">
+      @for (team of savedTeamsWithSprites; track team['id']; let i = $index) {
+        <div class="team-card">
+          <div class="team-header">
+            <strong>Équipe {{ i + 1 }}</strong>
+            <button class="delete-btn" (click)="deleteTeam(team['id'])">Supprimer</button>
+          </div>
+<div class="team-pokemon-grid">
+  @for (key of ['pokemon1','pokemon2','pokemon3','pokemon4','pokemon5','pokemon6']; track key) {
+    <div class="pokemon-box">
+      @if ($any(team)[key]?.sprite) {
+        <img [src]="$any(team)[key].sprite" [alt]="$any(team)[key].name" class="sprite" />
+      } @else {
+        <div class="sprite placeholder"></div>
+      }
+      <span class="pokemon-name">{{ $any(team)[key]?.name || '—' }}</span>
+    </div>
+  }
+</div>
+        </div>
+      }
+    </div>
+  </section>
+
+</div>
