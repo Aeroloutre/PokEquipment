@@ -26,6 +26,8 @@ export class TeamEditor implements OnInit {
 
   allPokemons: string[] = [];
   savedTeams: Team[] = [];
+  // tableau exposé au template avec les sprites chargés
+  savedTeamsWithSprites: Array<Record<string, { name: string; sprite: string | null } | string | any>> = [];
   errorMessage = '';
 
   constructor(
@@ -40,6 +42,38 @@ export class TeamEditor implements OnInit {
     });
 
     this.loadTeams();
+    this.loadTeamsWithSprites();
+  }
+
+  private loadTeamsWithSprites() {
+    const pokemonKeys = ['pokemon1', 'pokemon2', 'pokemon3', 'pokemon4', 'pokemon5', 'pokemon6'];
+
+    this.savedTeamsWithSprites = [];
+
+    for (const team of this.savedTeams) {
+      const obj: any = { id: team.id };
+      let remaining = pokemonKeys.length;
+
+      pokemonKeys.forEach(key => {
+        const name = (team as any)[key]?.name;
+        if (!name) {
+          obj[key] = { name: '', sprite: null };
+          remaining--;
+          if (remaining === 0) this.savedTeamsWithSprites.push(obj);
+          return;
+        }
+
+        this.pokemonService.getPokemonById(name).subscribe((res: any) => {
+          obj[key] = { name, sprite: res?.sprites?.front_default ?? null };
+          remaining--;
+          if (remaining === 0) this.savedTeamsWithSprites.push(obj);
+        }, () => {
+          obj[key] = { name, sprite: null };
+          remaining--;
+          if (remaining === 0) this.savedTeamsWithSprites.push(obj);
+        });
+      });
+    }
   }
 
   loadTeams() {

@@ -70,3 +70,35 @@
 
   <button type="submit" class="submit-btn">Valider l'équipe</button>
 </form>
+
+<section class="saved-teams">
+  <h2>Équipes sauvegardées</h2>
+
+  @if (savedTeamsWithSprites.length === 0) {
+    <p class="no-teams">Aucune équipe sauvegardée.</p>
+  }
+
+  <div class="teams-list">
+    @for (team of savedTeamsWithSprites; track team['id']; let i = $index) {
+      <div class="team-card">
+        <div class="team-header">
+          <strong>Équipe {{ i + 1 }}</strong>
+          <button class="delete-btn" (click)="deleteTeam(team['id'])">Supprimer</button>
+        </div>
+
+        <div class="team-pokemon-grid">
+          @for (key of ['pokemon1','pokemon2','pokemon3','pokemon4','pokemon5','pokemon6']; track key) {
+            <div class="pokemon-box">
+              @if (team[key]?.sprite) {
+                <img [src]="team[key].sprite" [alt]="team[key].name" class="sprite" />
+              } @else {
+                <div class="sprite placeholder"></div>
+              }
+              <span class="pokemon-name">{{ team[key]?.name ?? '—' }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>

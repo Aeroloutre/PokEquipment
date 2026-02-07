@@ -98,3 +98,91 @@
   text-align: center;
   font-weight: 500;
 }
+
+.saved-teams {
+  margin-top: 48px;
+  padding: 24px;
+}
+
+.saved-teams h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.no-teams {
+  text-align: center;
+  color: #888;
+}
+
+.teams-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.team-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  width: fit-content;
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.team-pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.pokemon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.sprite {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.placeholder {
+  width: 64px;
+  height: 64px;
+  background: #eee;
+  border-radius: 50%;
+}
+
+.pokemon-name {
+  font-size: 0.75rem;
+  text-align: center;
+  color: #444;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
